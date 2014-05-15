@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Test Page</title>
+    <style type="text/css">
+        textarea {
+            height: 800px;
+            width: 800px;
+            position: absolute;
+            top: 0;
+            left: 800px;            
+        }
+    </style>    
+</head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="to_md.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#md_area')[0].value = html_to_md($('#html_area'));
+});
+</script>
+<body>
+<div id="html_area">
+    <h1>Test Page for to_md.js</h1>    
+    <h2>Supported elements</h2>    
+    <p>Paragraphs</p>    
+    <p><a href="http://www.example.com">Links in a paragraph</a></p>
+    <div><a href="http://www.example.com">Links in a div</a></div>
+    <div><p><a href="http://www.example.com">A link in a paragraph within a div</a></p></div>
+    <p><div><a href="http://www.example.com">A link in a div within a paragraph</a></div></p>
+    <div>Div with a <a href="http://www.example.com">Slightly <b>bold</b> link</a> in it.</div>
+    <h3>Headings</h3>
+    Boring inline text with some <a href="http://www.example.com">links</a> and <b>bold</b> in.
+    <p>Line<br>breaks</p>
+    <p>Text with <em>emphasis</em></p>
+    <ul><li>Unordered lists</li></ul>
+    <ul><li>Nested</li><ul><li>lists</li></ul></ul>
+    <ol><li>Ordered</li><li>lists</li></ol>    
+    <p><b>Bold</b>, and <em>emphatic</em>: with no space befo<b>re</b> or af<em>ter</em>.</p>    
+    <textarea>Unrecognized tags (passed through opaquely)</textarea>
+    <pre><code>Multiline
+code blocks</code></pre>
+    <p>Inline <code>code</code> snippets</p>
+    <pre><code>Multiline
+code blocks with (`) backticks</code></pre>
+    <p>Inline <code>code with backticks (`)</code> snippets</p>
+    <blockquote><p>Block quotes</p></blockquote>
+    <p>Inline <code>code with multiple (`) backticks (``)</code> snippets</p>
+    <blockquote><p>Block<br>Xquotes <em>with</em> test <ul><li>stuff</li></ul> <code>in</code></p></blockquote>
+    
+    <h3>Images</h3>
+    <img src="http://placekitten.com/g/200/300" />
+    <img src="http://placekitten.com/g/100/300" title="With Title!"/>
+    <img src="http://placekitten.com/g/350/300" alt="With alt text!"/>
+    <img src="http://placekitten.com/g/250/300" title="With Title!" alt="With alt text!"/>
+    Text with images <img src="http://placekitten.com/g/200/300" /> inside...
+        
+    <h2>Todos</h2>
+    Make the HTML for this test page into a textarea so it can be edited.
+
+</div>
+<textarea id="md_area">This isn't working - check browser console...</textarea>
+</body>
+</html>
