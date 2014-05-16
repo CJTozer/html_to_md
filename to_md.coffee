@@ -30,7 +30,7 @@ html_to_md = (top_element) ->
           when "H6" then "###### #{elem.innerHTML}"
           when "P", "DIV" then "#{html_to_md elem}"
           when "A" then handle_link elem
-          when "B" then "__#{html_to_md elem}__"
+          when "B", "STRONG" then "__#{html_to_md elem}__"
           when "BR" then ""
           when "EM" then "*#{html_to_md elem}*"
           when "UL" then handle_list elem, "*"
