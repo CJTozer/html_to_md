@@ -51,7 +51,7 @@ html_to_md = (top_element) ->
 space_required = (prev, next) ->
   spacing = "\n"
   set_apart = /^(H\d|DIV|P)$/i
-  flow_on = /^( ?TEXT ?|A|B|EM|CODE|IMG)$/i
+  flow_on = /^( ?TEXT ?|A|B|STRONG|EM|CODE|IMG)$/i
   spacing_rules = [[/^$/, /.*/, ""], # First element needs no extra spacing
                    [set_apart, /.*/, "\n\n"], # Set apart - always a blank line
                    [/.*/, set_apart, "\n\n"], # Set apart - always a blank line
