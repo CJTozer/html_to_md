@@ -54,6 +54,7 @@ html_to_md = function(top_element) {
               case "A":
                 return handle_link(elem);
               case "B":
+              case "STRONG":
                 return "__" + (html_to_md(elem)) + "__";
               case "BR":
                 return "";
@@ -88,7 +89,7 @@ space_required = function(prev, next) {
   var flow_on, rule, set_apart, spacing, spacing_rules, _i, _len;
   spacing = "\n";
   set_apart = /^(H\d|DIV|P)$/i;
-  flow_on = /^( ?TEXT ?|A|B|EM|CODE|IMG)$/i;
+  flow_on = /^( ?TEXT ?|A|B|STRONG|EM|CODE|IMG)$/i;
   spacing_rules = [[/^$/, /.*/, ""], [set_apart, /.*/, "\n\n"], [/.*/, set_apart, "\n\n"], [/.*/, /^IMG$/, "\n"], [/^IMG$/, flow_on, "\n"], [flow_on, /^ TEXT/i, " "], [/TEXT $/i, flow_on, " "], [flow_on, flow_on, ""], [/^[UO]L$/, /^[UO]L$/, "\n \n \n"], [/^BR$/i, /.*/, "  \n"], [/.*/, /^BR$/i, ""]];
   for (_i = 0, _len = spacing_rules.length; _i < _len; _i++) {
     rule = spacing_rules[_i];
