@@ -58,6 +58,8 @@ html_to_md = function(top_element) {
                 return "__" + (html_to_md(elem)) + "__";
               case "BR":
                 return "";
+              case "HR":
+                return "\n----";
               case "EM":
                 return "*" + (html_to_md(elem)) + "*";
               case "UL":

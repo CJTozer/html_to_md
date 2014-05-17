@@ -32,6 +32,7 @@ html_to_md = (top_element) ->
           when "A" then handle_link elem
           when "B", "STRONG" then "__#{html_to_md elem}__"
           when "BR" then ""
+          when "HR" then "\n----"
           when "EM" then "*#{html_to_md elem}*"
           when "UL" then handle_list elem, "*"
           when "OL" then handle_list elem, "1."
